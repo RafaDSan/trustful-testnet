@@ -1,0 +1,26 @@
+.container {
+  width: 80%;
+  height: auto;
+  max-width: 900px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.content {
+  flex-direction: column;
+  width: 85%;
+  font-size: 17px;
+  gap: 1rem;
+  justify-content: center;
+  display: flex;
+  align-items: start;
+}
+
+@media (width < 768px) {
+  .container {
+    width: 100%;
+  }
+}
