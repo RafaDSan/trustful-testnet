@@ -8,7 +8,7 @@ import React, {
   useEffect,
 } from "react";
 
-import { scroll } from "viem/chains";
+import { sepolia } from "viem/chains";
 import { useAccount, useSwitchChain } from "wagmi";
 
 import { GiveBadgeStepAddress } from "@/components/04-templates/GiveBadgeSection";
@@ -101,12 +101,12 @@ export const GiveBadgeContextProvider = ({
       return;
     }
 
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message: "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 

@@ -3,7 +3,7 @@
 
 import { useEffect } from "react";
 
-import { scroll } from "viem/chains";
+import { sepolia } from "viem/chains";
 import { useAccount, useSwitchChain } from "wagmi";
 
 import {
@@ -27,18 +27,18 @@ export default function renderPage({ params }: { params: { slug: [string] } }) {
 
   useEffect(() => {
     if (address) {
-      if (chainId !== scroll.id) {
+      if (chainId !== sepolia.id) {
         notifyError({
           title: "Unsupported network",
           message:
-            "Please switch to the Scroll network to use this application.",
+            "Please switch to the sepolia network to use this application.",
         });
-        switchChain({ chainId: scroll.id });
+        switchChain({ chainId: sepolia.id });
       }
     }
   }, [chainId]);
 
-  if (chainId === scroll.id) {
+  if (chainId === sepolia.id) {
     switch (params.slug[0]) {
       case "pre-checkin":
         return <PreCheckinSection />;

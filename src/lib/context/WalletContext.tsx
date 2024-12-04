@@ -10,7 +10,7 @@ import React, {
 } from "react";
 
 import { watchAccount } from "@wagmi/core";
-import { scroll } from "viem/chains";
+import { sepolia } from "viem/chains";
 import { useAccount, useSwitchChain } from "wagmi";
 
 import { useNotify } from "@/hooks/useNotify";
@@ -89,13 +89,13 @@ export const WalletContextProvider = ({
   const handleQuery = async () => {
     // If the user is ROOT we skip the checkin validation
     if (address) {
-      if (chainId !== scroll.id) {
+      if (chainId !== sepolia.id) {
         notifyError({
           title: "Unsupported network",
           message:
-            "Please switch to the Scroll network to use this application.",
+            "Please switch to the sepolia network to use this application.",
         });
-        switchChain({ chainId: scroll.id });
+        switchChain({ chainId: sepolia.id });
         return;
       }
       const isRoot = await hasRole(ROLES.ROOT, address);

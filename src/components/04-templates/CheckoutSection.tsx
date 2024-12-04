@@ -25,7 +25,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { BeatLoader } from "react-spinners";
-import { scroll } from "viem/chains";
+import { sepolia } from "viem/chains";
 import { encodeAbiParameters, parseAbiParameters } from "viem/utils";
 import { useAccount, useSwitchChain } from "wagmi";
 
@@ -86,12 +86,12 @@ export const CheckoutSection = () => {
       });
       return;
     }
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message: "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
     if (!checkInTxId) {
@@ -202,12 +202,12 @@ export const CheckoutSection = () => {
 
   // Check the user's check-in timestamp
   const handleQuery = async () => {
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message: "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 
@@ -295,12 +295,12 @@ export const CheckoutSection = () => {
       });
       return;
     }
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message: "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
     if (villagerAttestationCount && villagerAttestationCount > 2) {

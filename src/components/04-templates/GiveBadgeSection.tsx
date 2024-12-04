@@ -22,7 +22,7 @@ import { watchAccount } from "@wagmi/core";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { BeatLoader } from "react-spinners";
 import { isAddress, encodeAbiParameters, parseAbiParameters } from "viem";
-import { scroll } from "viem/chains";
+import { sepolia } from "viem/chains";
 import { normalize } from "viem/ens";
 import { useAccount, useSwitchChain } from "wagmi";
 
@@ -271,12 +271,12 @@ export const GiveBadgeSection = () => {
       return;
     }
 
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message: "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 
