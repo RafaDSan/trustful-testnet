@@ -31,7 +31,7 @@ Fork this repository by:
 
 Open the VsCode or other IDE editor, and enteder the following command in the cmd:
 
-`git clone https://github.com/YourUserName/trustful-testnet.git`
+`git clone https://github.com/YourUserName/trustful.git`
 
 ### Instaling dependencies
 

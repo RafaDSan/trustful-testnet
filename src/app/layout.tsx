@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "Trustful",
   authors: {
     name: "Blockful",
-    url: "https://github.com/blockful-io/trustful-testnet",
+    url: "https://github.com/blockful-io/trustful",
   },
   icons: "favicon.ico",
 };
