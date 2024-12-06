@@ -91,7 +91,8 @@ export const DropdownMenuAdmin = () => {
     if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the sepolia network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
       switchChain({ chainId: sepolia.id });
       return;
@@ -146,7 +147,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com//tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -174,7 +175,8 @@ export const DropdownMenuAdmin = () => {
     if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the sepolia network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
       switchChain({ chainId: sepolia.id });
       return;
@@ -242,7 +244,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com//tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -269,7 +271,8 @@ export const DropdownMenuAdmin = () => {
     if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the sepolia network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
       switchChain({ chainId: sepolia.id });
       return;
@@ -323,7 +326,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com/tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -416,7 +419,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com/tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -436,7 +439,8 @@ export const DropdownMenuAdmin = () => {
     if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the sepolia network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
       switchChain({ chainId: sepolia.id });
       return;
@@ -534,7 +538,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com/tx/${transactionResponse.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${transactionResponse.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"

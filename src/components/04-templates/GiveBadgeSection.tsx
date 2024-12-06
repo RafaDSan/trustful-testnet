@@ -71,7 +71,7 @@ export const GiveBadgeSection = () => {
   const { push } = useRouter();
   const { notifyError } = useNotify();
   const unwatch = watchAccount(wagmiConfig, {
-    onChange() { },
+    onChange() {},
   });
   const {
     addressStep,
@@ -251,12 +251,12 @@ export const GiveBadgeSection = () => {
   // Changes the continue arrow color based on the status of a valid input address
   const iconColor =
     (inputAddress && isAddress(inputAddress)) ||
-      (badgeInputAddress && isAddress(badgeInputAddress?.address))
+    (badgeInputAddress && isAddress(badgeInputAddress?.address))
       ? "text-[#000000  ]"
       : "text-[#F5FFFFB2]";
   const iconBg =
     (inputAddress && isAddress(inputAddress)) ||
-      (badgeInputAddress && isAddress(badgeInputAddress?.address))
+    (badgeInputAddress && isAddress(badgeInputAddress?.address))
       ? "bg-[#B1EF42B2]"
       : "bg-[#37383A]";
 
@@ -274,7 +274,8 @@ export const GiveBadgeSection = () => {
     if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the sepolia network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
       switchChain({ chainId: sepolia.id });
       return;
@@ -438,7 +439,7 @@ export const GiveBadgeSection = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com/tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
