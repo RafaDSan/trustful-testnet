@@ -16,7 +16,7 @@ import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { BeatLoader } from "react-spinners";
 import { isAddress } from "viem";
-import { scroll } from "viem/chains";
+import { sepolia } from "viem/chains";
 import { useAccount, useSwitchChain } from "wagmi";
 
 import { InputAddressUser } from "@/components/02-molecules/";
@@ -88,12 +88,13 @@ export const DropdownMenuAdmin = () => {
       return;
     }
 
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 
@@ -146,7 +147,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com//tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -171,12 +172,13 @@ export const DropdownMenuAdmin = () => {
       return;
     }
 
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 
@@ -242,7 +244,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com//tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -266,12 +268,13 @@ export const DropdownMenuAdmin = () => {
       return;
     }
 
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 
@@ -323,7 +326,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com/tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -361,12 +364,12 @@ export const DropdownMenuAdmin = () => {
       return;
     }
 
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
         message: "Please switch to the  network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 
@@ -416,7 +419,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com/tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -433,12 +436,13 @@ export const DropdownMenuAdmin = () => {
   };
 
   const handleRevokeManagerRole = async () => {
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 
@@ -534,7 +538,7 @@ export const DropdownMenuAdmin = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com/tx/${transactionResponse.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${transactionResponse.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -551,13 +555,13 @@ export const DropdownMenuAdmin = () => {
   // Defines the connected user to use the admin menu
   const handleConnectedAddress = async () => {
     if (address) {
-      if (chainId !== scroll.id) {
+      if (chainId !== sepolia.id) {
         notifyError({
           title: "Unsupported network",
           message:
-            "Please switch to the Scroll network to use this application.",
+            "Please switch to the sepolia network to use this application.",
         });
-        switchChain({ chainId: scroll.id });
+        switchChain({ chainId: sepolia.id });
         return;
       }
 

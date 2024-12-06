@@ -17,7 +17,7 @@ import { useToast } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { BeatLoader } from "react-spinners";
 import { encodeAbiParameters, parseAbiParameters } from "viem";
-import { scroll } from "viem/chains";
+import { sepolia } from "viem/chains";
 import { useAccount, useSwitchChain } from "wagmi";
 
 import {
@@ -105,12 +105,13 @@ export const BadgeDetailsSection = () => {
     response: any,
     isConfirm: boolean | null,
   ) => {
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
     if (response instanceof Error) {
@@ -158,7 +159,7 @@ export const BadgeDetailsSection = () => {
             <Text>
               Badge sent at tx:{" "}
               <Link
-                href={`https://scrollscan.com/tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -191,12 +192,13 @@ export const BadgeDetailsSection = () => {
 
   // Submit attestation
   const handleAttest = async (isConfirm: boolean) => {
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 
@@ -226,12 +228,13 @@ export const BadgeDetailsSection = () => {
 
   // Submit revoke
   const handleRevoke = async () => {
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
     if (!canProcessAttestation()) return;
@@ -373,7 +376,7 @@ export const BadgeDetailsSection = () => {
                       {getEllipsedAddress(selectedBadge.id as `0x${string}`)}
                     </CopyToClipboardButton>
                     <OutboundLinkButton
-                      label={`https://scroll.easscan.org/attestation/view/${selectedBadge.id}`}
+                      label={`https://sepolia.easscan.org/attestation/view/${selectedBadge.id}`}
                       svgClassName="cursor-pointer text-center ml-1"
                     />
                   </Text>
@@ -392,7 +395,7 @@ export const BadgeDetailsSection = () => {
                       {getEllipsedAddress(selectedBadge.txid as `0x${string}`)}
                     </CopyToClipboardButton>
                     <OutboundLinkButton
-                      label={`https://scrollscan.com/tx/${selectedBadge.txid}`}
+                      label={`https://sepolia.etherscan.io/tx/${selectedBadge.txid}`}
                       svgClassName="cursor-pointer text-center ml-1"
                     />
                   </Text>
@@ -413,7 +416,7 @@ export const BadgeDetailsSection = () => {
                       )}
                     </CopyToClipboardButton>
                     <OutboundLinkButton
-                      label={`https://scroll.easscan.org/schema/view/${selectedBadge.schema.id}`}
+                      label={`https://sepolia.easscan.org/attestation/view//${selectedBadge.schema.id}`}
                       svgClassName="cursor-pointer text-center ml-1"
                     />
                   </Text>
@@ -440,7 +443,7 @@ export const BadgeDetailsSection = () => {
               )}
           </Box>
           {selectedBadge.schema.id === TRUSTFUL_SCHEMAS.ATTEST_EVENT.uid &&
-            badgeStatus === BadgeStatus.PENDING ? (
+          badgeStatus === BadgeStatus.PENDING ? (
             <Box
               as="footer"
               position="fixed"

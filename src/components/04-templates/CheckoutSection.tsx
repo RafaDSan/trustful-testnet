@@ -25,7 +25,7 @@ import {
 } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { BeatLoader } from "react-spinners";
-import { scroll } from "viem/chains";
+import { sepolia } from "viem/chains";
 import { encodeAbiParameters, parseAbiParameters } from "viem/utils";
 import { useAccount, useSwitchChain } from "wagmi";
 
@@ -86,12 +86,13 @@ export const CheckoutSection = () => {
       });
       return;
     }
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
     if (!checkInTxId) {
@@ -174,7 +175,7 @@ export const CheckoutSection = () => {
             <Text>
               Check-out at tx:{" "}
               <Link
-                href={`https://scrollscan.com/tx/${response.transactionHash}`}
+                href={`https://sepolia.etherscan.io/tx/${response.transactionHash}`}
                 isExternal
                 color="white"
                 textDecoration="underline"
@@ -202,12 +203,13 @@ export const CheckoutSection = () => {
 
   // Check the user's check-in timestamp
   const handleQuery = async () => {
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
 
@@ -295,12 +297,13 @@ export const CheckoutSection = () => {
       });
       return;
     }
-    if (chainId !== scroll.id) {
+    if (chainId !== sepolia.id) {
       notifyError({
         title: "Unsupported network",
-        message: "Please switch to the Scroll network to use this application.",
+        message:
+          "Please switch to the sepolia network to use this application.",
       });
-      switchChain({ chainId: scroll.id });
+      switchChain({ chainId: sepolia.id });
       return;
     }
     if (villagerAttestationCount && villagerAttestationCount > 2) {
@@ -474,58 +477,58 @@ export const CheckoutSection = () => {
               )}
               {(villagerAttestationCount === 1 ||
                 villagerAttestationCount % 2 !== 0) && (
-                  <Divider className="w-full border-t border-[#F5FFFF1A] border-opacity-10" />
-                )}
+                <Divider className="w-full border-t border-[#F5FFFF1A] border-opacity-10" />
+              )}
               {(villagerAttestationCount === 1 ||
                 villagerAttestationCount % 2 !== 0) && (
-                  <Box
-                    gap={6}
-                    display={"flex"}
-                    alignItems={"center"}
-                    justifyContent={"space-between"}
-                    flexDirection={"column"}
-                    className="px-6 py-4 sm:px-[60px] w-full"
+                <Box
+                  gap={6}
+                  display={"flex"}
+                  alignItems={"center"}
+                  justifyContent={"space-between"}
+                  flexDirection={"column"}
+                  className="px-6 py-4 sm:px-[60px] w-full"
+                >
+                  {villagerAttestationCount > 2 && (
+                    <Flex className={"items-center"}>
+                      <Text className="text-center text-slate-50 text-base font-normal leading-snug">
+                        You can still check-out bellow but we won&apos;t be able
+                        to calculate your stay at the moment.
+                      </Text>
+                    </Flex>
+                  )}
+                  <Button
+                    className="w-full px-6 py-4 bg-[#ef4343] text-white rounded-lg"
+                    _hover={{ bg: "#ef4343" }}
+                    _active={{ bg: "#ef4343" }}
+                    onClick={onOpen}
                   >
-                    {villagerAttestationCount > 2 && (
-                      <Flex className={"items-center"}>
-                        <Text className="text-center text-slate-50 text-base font-normal leading-snug">
-                          You can still check-out bellow but we won&apos;t be able
-                          to calculate your stay at the moment.
-                        </Text>
-                      </Flex>
-                    )}
-                    <Button
-                      className="w-full px-6 py-4 bg-[#ef4343] text-white rounded-lg"
-                      _hover={{ bg: "#ef4343" }}
-                      _active={{ bg: "#ef4343" }}
-                      onClick={onOpen}
-                    >
-                      Confirm
-                    </Button>
-                    {villagerAttestationCount > 2 && (
-                      <Flex className="py-4 gap-4 w-full items-center">
-                        <Flex gap={2} className="w-full">
-                          <Flex className="gap-4 w-full pb-4 justify-start items-center">
-                            <CommentIcon />
-                            <Textarea
-                              className="text-slate-50 w-full text-base font-normal leading-snug border-none"
-                              placeholder={`Please refer your last check-in UID from EAS`}
-                              _placeholder={{
-                                className: "text-slate-50 opacity-30",
-                              }}
-                              focusBorderColor={"#F5FFFF1A"}
-                              value={refUID || ""}
-                              onChange={handleRefUIDChange}
-                              rows={1}
-                              minH="unset"
-                              resize="none"
-                            />
-                          </Flex>
+                    Confirm
+                  </Button>
+                  {villagerAttestationCount > 2 && (
+                    <Flex className="py-4 gap-4 w-full items-center">
+                      <Flex gap={2} className="w-full">
+                        <Flex className="gap-4 w-full pb-4 justify-start items-center">
+                          <CommentIcon />
+                          <Textarea
+                            className="text-slate-50 w-full text-base font-normal leading-snug border-none"
+                            placeholder={`Please refer your last check-in UID from EAS`}
+                            _placeholder={{
+                              className: "text-slate-50 opacity-30",
+                            }}
+                            focusBorderColor={"#F5FFFF1A"}
+                            value={refUID || ""}
+                            onChange={handleRefUIDChange}
+                            rows={1}
+                            minH="unset"
+                            resize="none"
+                          />
                         </Flex>
                       </Flex>
-                    )}
-                  </Box>
-                )}
+                    </Flex>
+                  )}
+                </Box>
+              )}
             </Card>
           </Box>
           <Modal isOpen={isOpen} onClose={onClose} isCentered>
